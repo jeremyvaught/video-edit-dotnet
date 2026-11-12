@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>video-edit review</title>
+  <link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v=1" sizes="32x32">
+  <link rel="stylesheet" href="app.css?v=review-4">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">Review</p>
+      <h1 id="title">Loading…</h1>
+      <p class="meta" id="meta"></p>
+    </div>
+    <div class="status" id="status">Idle</div>
+  </header>
+
+  <section class="rough">
+    <div class="panel-head">
+      <h2>Rough cut</h2>
+      <button type="button" data-action="rough">Build rough cut</button>
+    </div>
+    <p class="meta">Pending and approved cuts are in this video. Rejected cuts stay in until you approve a replacement.</p>
+    <p class="stale" id="rough-stale" hidden>This preview is stale. Rebuild it before judging the assembled video.</p>
+    <video id="rough-player" controls playsinline></video>
+  </section>
+
+  <section class="questions" id="questions" hidden>
+    <h2>Open questions</h2>
+    <ul id="question-list"></ul>
+  </section>
+
+  <section class="rerecord" id="rerecord" hidden>
+    <h2>Re-record list</h2>
+    <p class="meta">Script is authoritative. Insertions and repeats are pending cuts in the scene list. Substitutions stay here until you mark them fine as spoken. Resolved and dismissed items leave this list.</p>
+    <div id="rerecord-list"></div>
+    <details id="rerecord-minor" hidden>
+      <summary id="rerecord-minor-summary">Minor</summary>
+      <div id="rerecord-minor-list"></div>
+    </details>
+    <details id="rerecord-resolved" hidden>
+      <summary id="rerecord-resolved-summary">Resolved by cut</summary>
+      <div id="rerecord-resolved-list"></div>
+    </details>
+  </section>
+
+  <section id="scenes"></section>
+
+  <footer class="actions">
+    <button type="button" data-action="splices">Build splice previews</button>
+    <button type="button" id="approve-final" data-action="approve">Approve final sequence</button>
+    <button type="button" id="export" data-action="export">Export</button>
+    <p id="blocks"></p>
+  </footer>
+
+  <div id="busy" class="busy" hidden>
+    <div>
+      <p>Working</p>
+      <p id="busy-label">Media operation in progress</p>
+    </div>
+  </div>
+
+  <script src="app.js?v=review-4"></script>
+</body>
+</html>
